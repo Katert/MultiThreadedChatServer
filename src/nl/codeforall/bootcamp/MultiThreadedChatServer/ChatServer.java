@@ -50,9 +50,15 @@ public class ChatServer {
 
     }
 
-    public void broadcast(String message) throws IOException {
+    public void broadcastMessage(String message) throws IOException {
         for (ClientHandler client : clients) {
-            client.send(message);
+            client.sendMessage(message);
+        }
+    }
+
+    public void broadcastChange(String change){
+        for (ClientHandler client : clients) {
+            client.sendChange(change);
         }
     }
 
@@ -63,5 +69,6 @@ public class ChatServer {
     public void removeClient(ClientHandler client) {
         clients.remove(client);
     }
+
 
 }

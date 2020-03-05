@@ -36,25 +36,57 @@ public class ClientHandler implements Runnable {
             String message = bufferedReader.readLine();
 
             if (message != null) {
-                if (message.equals("logout")) {
-                    closeAll();
+
+                switch (message.split(" ")[0]) {
+                    case "/shout":
+                        messageUppercased(message.substring(6));
+                        break;
+                    case "/logout":
+                        closeAll();
+                        return;
+                    case "/name":
+                        changeName(message.substring(6));
+                        break;
+                    default:
+                        chatServer.broadcastMessage(message);
+                        break;
                 }
-                chatServer.broadcast(message);
             }
+
+            if (message == null) {
+                chatServer.removeClient(this);
+                closeAll();
+            }
+
         }
     }
 
-    public void send(String message) {
+    public void sendMessage(String message) {
         printWriter.println(Thread.currentThread().getName() + " says: " + message);
+    }
+
+    public void sendChange(String change) {
+        printWriter.println(change);
     }
 
     public void closeAll() throws IOException {
         try {
+            chatServer.broadcastChange(Thread.currentThread().getName() + " has logged out.");
             chatServer.removeClient(this);
             client.close();
         } catch (SocketException e) {
-            chatServer.broadcast(Thread.currentThread().getName() + " has logged out.");
+            System.out.println(e.getMessage());
         }
+    }
+
+    public void changeName(String name) throws IOException {
+        String currentName = Thread.currentThread().getName();
+        chatServer.broadcastChange(currentName + " changed name into " + name + ".");
+        Thread.currentThread().setName(name);
+    }
+
+    public void messageUppercased(String message) throws IOException {
+        chatServer.broadcastMessage(message.toUpperCase());
     }
 
 }

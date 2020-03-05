@@ -31,20 +31,13 @@ public class ChatClient {
         inKeyBoard = new BufferedReader(new InputStreamReader(System.in));
     }
 
-    public void askForName() {
-        if (clientSocket.isConnected()) {
-            out.println("Hi, what's your name?");
-
-        }
-    }
-
     public void sendMessage() throws IOException {
         while (!clientSocket.isClosed()) {
             String message = inKeyBoard.readLine();
             out.println(message);
             out.flush();
         }
-
+        closeStreams();
     }
 
     public void receiveMessage() throws IOException {
@@ -52,7 +45,7 @@ public class ChatClient {
             String message = in.readLine();
             System.out.println(message);
         }
-
+        closeStreams();
     }
 
     public void start() {
@@ -77,6 +70,12 @@ public class ChatClient {
             e.printStackTrace();
         }
 
+    }
+
+    public void closeStreams() throws IOException {
+        out.close();
+        in.close();
+        inKeyBoard.close();
     }
 
 }
