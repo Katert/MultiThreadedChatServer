@@ -52,8 +52,10 @@ public class ChatServer {
     }
 
     public void broadcast(String message) {
-        for (ClientHandler client : clients) {
-            client.sendMessage(message);
+        synchronized (clients) {
+            for (ClientHandler client : clients) {
+                client.sendMessage(message);
+            }
         }
     }
 
@@ -62,7 +64,9 @@ public class ChatServer {
     }
 
     public void removeClient(ClientHandler client) {
-        clients.remove(client);
+        synchronized (clients) {
+            clients.remove(client);
+        }
     }
 
     public StringBuilder activeClients() {

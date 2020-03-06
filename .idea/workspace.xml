@@ -2,17 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee5a6e8e-622d-4cd1-9c0f-984c4f39887b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MultiThreadedChatServer/nl/codeforall/bootcamp/MultiThreadedChatServer/ChatClient$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MultiThreadedChatServer/nl/codeforall/bootcamp/MultiThreadedChatServer/ChatClient.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MultiThreadedChatServer/nl/codeforall/bootcamp/MultiThreadedChatServer/ChatServer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MultiThreadedChatServer/nl/codeforall/bootcamp/MultiThreadedChatServer/ClientHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MultiThreadedChatServer/nl/codeforall/bootcamp/MultiThreadedChatServer/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MultiThreadedChatServer/nl/codeforall/bootcamp/MultiThreadedChatServer/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nl/codeforall/bootcamp/MultiThreadedChatServer/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nl/codeforall/bootcamp/MultiThreadedChatServer/ClientSide/ChatClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nl/codeforall/bootcamp/MultiThreadedChatServer/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nl/codeforall/bootcamp/MultiThreadedChatServer/ServerSide/ChatServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nl/codeforall/bootcamp/MultiThreadedChatServer/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nl/codeforall/bootcamp/MultiThreadedChatServer/ServerSide/ClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nl/codeforall/bootcamp/MultiThreadedChatServer/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nl/codeforall/bootcamp/MultiThreadedChatServer/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MultiThreadedChatServer/nl/codeforall/bootcamp/MultiThreadedChatServer/ClientSide/ChatClient$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MultiThreadedChatServer/nl/codeforall/bootcamp/MultiThreadedChatServer/ClientSide/ChatClient$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MultiThreadedChatServer/nl/codeforall/bootcamp/MultiThreadedChatServer/ClientSide/ChatClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MultiThreadedChatServer/nl/codeforall/bootcamp/MultiThreadedChatServer/ClientSide/ChatClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MultiThreadedChatServer/nl/codeforall/bootcamp/MultiThreadedChatServer/ServerSide/ChatServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MultiThreadedChatServer/nl/codeforall/bootcamp/MultiThreadedChatServer/ServerSide/ChatServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MultiThreadedChatServer/nl/codeforall/bootcamp/MultiThreadedChatServer/ServerSide/ClientHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MultiThreadedChatServer/nl/codeforall/bootcamp/MultiThreadedChatServer/ServerSide/ClientHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nl/codeforall/bootcamp/MultiThreadedChatServer/ClientSide/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nl/codeforall/bootcamp/MultiThreadedChatServer/ClientSide/ChatClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nl/codeforall/bootcamp/MultiThreadedChatServer/ServerSide/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nl/codeforall/bootcamp/MultiThreadedChatServer/ServerSide/ChatServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nl/codeforall/bootcamp/MultiThreadedChatServer/ServerSide/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nl/codeforall/bootcamp/MultiThreadedChatServer/ServerSide/ClientHandler.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +39,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Compound.MultipleChatClients">
+  <component name="RunManager" selected="Application.ChatClient">
     <configuration name="ChatClient" type="Application" factoryName="Application" singleton="false" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="nl.codeforall.bootcamp.MultiThreadedChatServer.ClientSide.ChatClient" />
       <module name="MultiThreadedChatServer" />
@@ -99,6 +96,7 @@
       <option name="presentableId" value="Default" />
       <updated>1583428023299</updated>
       <workItem from="1583428026892" duration="21246000" />
+      <workItem from="1583507598292" duration="2624000" />
     </task>
     <servers />
   </component>
@@ -110,7 +108,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

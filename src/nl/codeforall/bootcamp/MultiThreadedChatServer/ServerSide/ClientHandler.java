@@ -35,31 +35,32 @@ public class ClientHandler implements Runnable {
 
     private void listenForMessages() throws IOException {
         while (chatServer.isActive()) {
-
             String message = bufferedReader.readLine();
 
-            if (message != null) {
+            if (message == null) {
+                closeAll();
+                return;
+            }
 
-                switch (message.split(" ")[0]) {
-                    case "/whisper":
-                        whisperMessage(message);
-                        break;
-                    case "/shout":
-                        messageUppercased(message.substring(6));
-                        break;
-                    case "/logout":
-                        closeAll();
-                        return;
-                    case "/name":
-                        changeName(message.substring(6));
-                        break;
-                    case "/list":
-                        sendMessage(chatServer.activeClients().toString());
-                        break;
-                    default:
-                        chatServer.broadcast(name + " says: " + message);
-                        break;
-                }
+            switch (message.split(" ")[0]) {
+                case "/whisper":
+                    whisperMessage(message);
+                    break;
+                case "/shout":
+                    messageUppercased(message.substring(6));
+                    break;
+                case "/logout":
+                    closeAll();
+                    return;
+                case "/name":
+                    changeName(message.substring(6));
+                    break;
+                case "/list":
+                    sendMessage(chatServer.activeClients().toString());
+                    break;
+                default:
+                    chatServer.broadcast(name + " says: " + message);
+                    break;
             }
         }
     }
@@ -90,7 +91,7 @@ public class ClientHandler implements Runnable {
                     whisperedMessage += messageArray[i] + " ";
                 }
                 client.sendMessage(name + " whispers: " + whisperedMessage);
-                sendMessage("You whispered to " + name + ": " + (message = whisperedMessage));
+                sendMessage("You whispered to " + client.getName() + ": " + (message = whisperedMessage));
             }
         }
     }
@@ -107,7 +108,7 @@ public class ClientHandler implements Runnable {
     }
 
     private void messageUppercased(String message) {
-        chatServer.broadcast(message.toUpperCase());
+        chatServer.broadcast(name + " shouts: " + message.toUpperCase());
     }
 
     public String getName() {

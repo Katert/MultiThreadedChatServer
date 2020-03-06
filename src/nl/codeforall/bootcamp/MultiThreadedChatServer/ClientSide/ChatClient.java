@@ -17,7 +17,6 @@ public class ChatClient {
     private BufferedReader inKeyBoard;
 
     public ChatClient(String address, int port) {
-
         try {
             clientSocket = new Socket(address, port);
             setupStreams();
