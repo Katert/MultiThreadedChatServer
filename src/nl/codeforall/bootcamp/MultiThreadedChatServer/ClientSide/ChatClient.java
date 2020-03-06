@@ -1,6 +1,7 @@
-package nl.codeforall.bootcamp.MultiThreadedChatServer;
+package nl.codeforall.bootcamp.MultiThreadedChatServer.ClientSide;
 
 import java.io.*;
+import java.net.ServerSocket;
 import java.net.Socket;
 
 public class ChatClient {
@@ -26,7 +27,7 @@ public class ChatClient {
     }
 
     public void setupStreams() throws IOException {
-        out = new PrintWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
+        out = new PrintWriter(new OutputStreamWriter(clientSocket.getOutputStream()), true);
         in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
         inKeyBoard = new BufferedReader(new InputStreamReader(System.in));
     }
@@ -35,17 +36,20 @@ public class ChatClient {
         while (!clientSocket.isClosed()) {
             String message = inKeyBoard.readLine();
             out.println(message);
-            out.flush();
         }
-        closeStreams();
     }
 
     public void receiveMessage() throws IOException {
         while (!clientSocket.isClosed()) {
             String message = in.readLine();
+
+            if (message == null) {
+                System.exit(0);
+            }
+
             System.out.println(message);
+
         }
-        closeStreams();
     }
 
     public void start() {
@@ -70,12 +74,6 @@ public class ChatClient {
             e.printStackTrace();
         }
 
-    }
-
-    public void closeStreams() throws IOException {
-        out.close();
-        in.close();
-        inKeyBoard.close();
     }
 
 }

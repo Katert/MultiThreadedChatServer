@@ -1,4 +1,4 @@
-package nl.codeforall.bootcamp.MultiThreadedChatServer;
+package nl.codeforall.bootcamp.MultiThreadedChatServer.ServerSide;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -22,7 +22,7 @@ public class ChatServer {
         try {
 
             // Create server socket
-            System.out.print("Configure port number: ");
+            System.out.print("\nConfigure port number: ");
             int portNumber = input.nextInt();
             serverSocket = new ServerSocket(portNumber);
 
@@ -34,9 +34,10 @@ public class ChatServer {
             // Listen for connections
             while (!serverSocket.isClosed()) {
                 try {
+                    String randomClientName = ("User-" + (int) (Math.random() * 1000));
                     Socket clientSocket = serverSocket.accept();
-                    System.out.println("[USER] connected to chat room (" + new Date() + ").");
-                    ClientHandler client = new ClientHandler(clientSocket, this);
+                    System.out.println(randomClientName + " connected to the chat room (" + new Date() + ").");
+                    ClientHandler client = new ClientHandler(randomClientName, clientSocket, this);
                     threadPool.submit(client);
                     clients.add(client);
                 } catch (IOException e) {
@@ -50,15 +51,9 @@ public class ChatServer {
 
     }
 
-    public void broadcastMessage(String message) throws IOException {
+    public void broadcast(String message) {
         for (ClientHandler client : clients) {
             client.sendMessage(message);
-        }
-    }
-
-    public void broadcastChange(String change){
-        for (ClientHandler client : clients) {
-            client.sendChange(change);
         }
     }
 
@@ -70,5 +65,16 @@ public class ChatServer {
         clients.remove(client);
     }
 
+    public StringBuilder activeClients() {
+        StringBuilder list = new StringBuilder("Clients logged in: \n");
+        for (ClientHandler client : clients) {
+            list.append(client.getName()).append("\n");
+        }
+        return list;
+    }
+
+    public List<ClientHandler> getClientList() {
+        return clients;
+    }
 
 }
